@@ -1,0 +1,11 @@
+version: '2.4'
+services:
+  postgresql:
+    container_name: postgresql-loc
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=quote
+      - POSTGRES_USER=quote
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5455:5432"

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote</title>
+</head>
+<body>
+<div>
+    <h1>
+        <div>
+            <tr th:each="quote: ${quotes}">
+                <td th:text="${quote.id}"></td>
+                <td th:text="${quote.body}"></td>
+            </tr>
+        </div>
+    </h1>
+</div>
+<div>
+    Active profiles: <span th:text="${profiles}"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+version: '2.4'
+services:
+
+  app:
+    container_name: app-d
+    image: dimmxx/quote:latest
+    ports:
+      - "9090:9090"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - postgresql
+      - nginx
+
+  postgresql:
+    container_name: postgresql-d
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=quote
+      - POSTGRES_USER=quote
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5455:5432"
+
+  nginx:
+    container_name: nginx-d
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ../src/main/resources/nginx/conf/docker:/etc/nginx/conf.d
+    ports:
+      - "80:80"

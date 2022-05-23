@@ -1,0 +1,11 @@
+version: '2.4'
+services:
+  postgresql:
+    extends:
+      file: postgres.yml
+      service: postgresql
+  nginx:
+    extends:
+      file: nginx.yml
+      service: nginx
+
